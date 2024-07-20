@@ -1,0 +1,44 @@
+
+
+input{
+    width: 60%;
+    margin: auto;
+    padding: 0.55rem;
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.15), 
+          rgba(0, 0, 0, 0.15)
+        );
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+    color: white;
+    text-align: center;
+}
+
+input:focus{
+    outline: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+input::placeholder {
+    color: white;
+}
+
+.searchButton{
+    width: 20%;
+    margin: auto;
+    padding: 0.5rem;
+    height: 2.1rem;
+    padding-top: 0.4rem;
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.15), 
+          rgba(0, 0, 0, 0.15)
+        );
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+    border-left: 1px solid rgba(255, 255, 255, 0.27);
+    color: white;
+    text-align: center;
+}
+
+button:hover{
+    outline: 1px solid rgba(255, 255, 255, 0.27);
+}

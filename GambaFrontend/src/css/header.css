@@ -1,0 +1,27 @@
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+    color: white;
+    padding: 0.5rem;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 3rem;
+}
+
+.headerMoney{
+    width: 40%;
+    margin: auto;
+    padding: 0.5rem;
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.3), 
+          rgba(0, 0, 0, 0.3)
+        );
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.27);
+}
