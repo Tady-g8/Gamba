@@ -1,36 +1,42 @@
 package main
 
 import (
-	"encoding/json"
+	"database/sql"
 	"log"
-	"net/http"
 
 	"github.com/gorilla/mux"
+	_ "github.com/mattn/go-sqlite3"
 )
 
-type User struct {
-	ID       string `json:"id"`
-	Username string `json:"username"`
-	Email    string `json:"email"`
+var db *sql.DB
+
+func initializeDatabase() {
+	var err error
+	db, err = sql.Open("sqlite3", "./users.db")
+	if err != nil {
+		log.Fatal(err)
+	}
+	// if table doesn't exist
+	createTable()
 }
 
-var users []User
-
-func main() {
-	router := mux.NewRouter()
-	router.HandleFunc("/users", getUsers).Methods("GET")
-	router.HandleFunc("/users", createUser).Methods("POST")
-
-	log.Fatal(http.ListenAndServe(":8080", router))
+func createTable() {
+	query := `
+	CREATE TABLE IF NOT EXISTS users (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		username TEXT NOT NULL UNIQUE,
+		email TEXT NOT NULL UNIQUE,
+		money int64 NOT NULL
+	);
+	`
+	_, err := db.Exec(query)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
-func getUsers(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(users)
-}
-
-func createUser(w http.ResponseWriter, r *http.Request) {
-	var newUser User
-	_ = json.NewDecoder(r.Body).Decode(&newUser)
-	users = append(users, newUser)
-	json.NewEncoder(w).Encode(newUser)
+// routes for the application
+func initializeRoutes(router *mux.Router) {
+	router.HandleFunc("/signup", signupHandler).Methods("POST")
+	router.HandleFunc("/signin", signinHandler).Methods("POST")
 }
