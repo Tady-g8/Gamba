@@ -52,13 +52,21 @@ export default function Login() {
                 </div>
                 <div className="playingCard2">
                     <div className="innerCard2">
-                        
+                    <svg
+                        className="spades"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                        style={{ enableBackground: "new 0 0 128 128" }} // JSX-compatible style
+                        xmlSpace="preserve"
+                    >
+                        <path
+                             // JSX-compatible style
+                            d="M116.651 72.465c-.527 16.279-13.302 29.023-29.116 29.023a29.342 29.342 0 0 1-14.698-3.969 27.493 27.493 0 0 1-4.124-2.915c.682 10.45 3.38 24.465 12.155 33.395H47.132c8.775-8.961 11.504-22.977 12.186-33.426a27.964 27.964 0 0 1-4.155 2.946 29.34 29.34 0 0 1-14.698 3.969c-15.783 0-28.589-12.744-29.116-29.023-.279-8.155 2.326-16.434 7.752-24.62C23.38 41.426 64 0 64 0s40.62 41.426 44.899 47.845c5.426 8.186 8.031 16.465 7.752 24.62z"
+                        />
+                    </svg>
                     </div>
                 </div>
             </div>
-
-            
-
         </div>
     )
 }
