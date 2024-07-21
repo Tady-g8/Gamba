@@ -64,6 +64,12 @@ button{
     border: 2px solid var(--color-secondary-main);
     color: white;
     cursor: pointer;
+
+    transition: .1s ease;
+}
+
+button:hover{
+    border:2px solid var(--color-secondary);
 }
 
 .dontHaveAccount{
@@ -72,8 +78,14 @@ button{
 }
 
 a {
-    color: var(--color-secondary);
+    color: var(--color-secondary-main);
     text-decoration: none;
+
+    transition: .1s ease;
+}
+
+a:hover{
+    color: var(--color-secondary);
 }
 
 .playingCard{

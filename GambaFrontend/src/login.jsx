@@ -20,6 +20,9 @@ export default function Login() {
         if (formData.email === 'tadyg8' && formData.password === '123') {
             let msg = 'Welcome' + ' ' + formData.email;
             cardMover(msg);
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
         } else {
             cardMover('Wrong email or password');
         }
