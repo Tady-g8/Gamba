@@ -22,6 +22,14 @@
 
 .loginRight{
     border-left: 1px solid var(--color-secondary-main);
+    display: grid;
+    grid-template: 1fr / 1fr;
+    place-items: center;
+}
+
+.loginRight > * {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
 }
 
 form{
@@ -59,11 +67,68 @@ button{
 }
 
 .dontHaveAccount{
-    margin-top: 4rem;
+    margin-top: 3rem;
     text-align: center;
 }
 
 a {
     color: var(--color-secondary);
     text-decoration: none;
+}
+
+.playingCard{
+    background-color: var(--color-primary-darker);
+    z-index: 1;
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    margin-top: 6.5rem;
+    border: 1px solid var(--color-secondary-main);
+    border-radius: 2.5%;
+    transform: rotate(7deg);
+}
+
+.innerCard{
+    z-index: 1;
+    width: 90%;
+    height: 92.5%;
+    margin: auto;
+    margin-top: .87rem;
+    border: 1px solid var(--color-secondary-main);
+    border-radius: 2%;
+    display: grid;
+}
+
+.playingCard2{
+    transition: .4s ease;
+    background-color: var(--color-primary-darker);
+    z-index: 2;
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    margin-top: 7.5rem;
+    border: 1px solid var(--color-secondary-main);
+    border-radius: 2.5%;
+    transform: rotate(17deg);
+}
+
+.innerCard2{
+    z-index: 2;
+    width: 90%;
+    height: 92.5%;
+    margin: auto;
+    margin-top: .87rem;
+    border: 1px solid var(--color-secondary-main);
+    border-radius: 2%;
+    display: grid;
+}
+
+.formMsg{
+    width: 100%;
+    height: 100%;
+    padding-top: 10rem;
+    text-align: center;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    color: white;
 }
