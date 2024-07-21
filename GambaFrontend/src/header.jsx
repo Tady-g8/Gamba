@@ -11,16 +11,10 @@ export default function Header() {
 
     return (
         <header>
-            <Hamburger onToggle={toggled => {
-                if (toggled) {
-                    
-                } else {
-                    // close a menu
-                }
-            }} />
-            <h1>Gamba</h1>
+            <button className="h1" onClick={() => window.location.href = '/'}>Gamba</button>
+            <div className=""></div>
             <div className="headerMoney">$ 0.00</div>
-            <Search />
+            <div className=""></div>
             <HeaderLoginButton />
         </header>
     )

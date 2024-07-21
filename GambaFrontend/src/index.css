@@ -13,7 +13,8 @@
   --color-primary: rgba(010, 030, 050, 1);
   --color-primary-darker: rgba(000, 000, 000, 1);
 
-  --color-secondary: rgba(200, 044, 200, 1);
+  --color-secondary: rgba(000, 214, 200, 1);
+  --color-secondary-main: rgba(000, 000, 000, 1);
   --color-secondary-darker: rgba(000, 000, 000, 1);
   
 }
