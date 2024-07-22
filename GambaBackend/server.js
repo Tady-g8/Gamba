@@ -8,10 +8,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // This should parse JSON bodies
+app.use(bodyParser.urlencoded({ extended: true })); // This should parse URL-encoded bodies
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/authdb', {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -30,6 +31,5 @@ app.listen(PORT, () => {
 });
 
 /**
- * mongoPassTG=L7PEgfD8GMUN8dMW
-mongoPassDM=xTvummxJ5OoEaRGf
+ * mongoPassG=fRy6Qf52ZaYoxvLA
  */

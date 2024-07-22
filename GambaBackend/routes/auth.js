@@ -8,6 +8,7 @@ const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post('/signup', async (req, res) => {
+    console.log('Received request body:', req.body);
     const { username, password, email } = req.body;
 
     try {
@@ -39,6 +40,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/signin', async (req, res) => {
+    console.log('Received request body:', req.body);
     const { username, password } = req.body;
 
     try {

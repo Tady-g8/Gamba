@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: ''
       });
     
@@ -17,15 +17,34 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formData.email === 'tadyg8' && formData.password === '123') {
-            let msg = 'Welcome' + ' ' + formData.email;
-            cardMover(msg);
-            setTimeout(() => {
-                window.location.href = '/';
-            }, 2000);
-        } else {
-            cardMover('Wrong email or password');
-        }
+        const username = formData.username;
+        const password = formData.password;
+
+        fetch('http://localhost:3000/api/auth/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        }).then(res => {
+            return res.json();
+        }).then(data => {
+            console.log(data);
+            // Handle success response
+            if (data.token) {
+                let msg = 'Welcome ' + formData.username;
+                sessionStorage.setItem('user', JSON.stringify(data));
+                cardMover(msg);
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } else {
+                cardMover('Invalid credentials');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            cardMover('Error occurred');
+        });
     }
     return (
         <div className="loginWrap">
@@ -33,9 +52,9 @@ export default function Login() {
             <h1>Welcome back!</h1>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email or Username</label>
+                <label htmlFor="username">Username</label>
                 <br />
-                <input className='loginInput' placeholder='John Doe' type="text" id="email" name="email" value={formData.email} onChange={handleChange} />
+                <input className='loginInput' placeholder='John Doe' type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
                 <br />
                 <br />
                 <label htmlFor="password">Password</label>
