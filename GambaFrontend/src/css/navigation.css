@@ -1,0 +1,29 @@
+nav{
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    width: 100%;
+    background-color: var(--color-primary-darker);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 2rem
+}
+
+.navigationMain{
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.navigationSub{
+    color: rgba(255, 255, 255, 0.6);
+    font-size: .9rem;
+    text-decoration: none;
+    margin-left: 3rem;
+    margin-top: 1.5rem;
+}
+
+ul{
+    list-style: none;
+}
