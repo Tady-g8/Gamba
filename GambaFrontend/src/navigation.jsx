@@ -8,7 +8,7 @@ export default function Navigation() {
                     <ul>
                         <li><a href="/" className='navigationSub'>Roulette</a></li>
                         <li><a href="/" className='navigationSub'>Plinko</a></li>
-                        <li><a href="/" className='navigationSub'>Something cases</a></li>
+                        <li><a href="/" className='navigationSub'>Cases</a></li>
                     </ul>
                 </li>
             </ul>

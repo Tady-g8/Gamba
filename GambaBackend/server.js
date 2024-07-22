@@ -28,3 +28,8 @@ app.use('/api/auth', authRoutes);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+/**
+ * mongoPassTG=L7PEgfD8GMUN8dMW
+mongoPassDM=xTvummxJ5OoEaRGf
+ */

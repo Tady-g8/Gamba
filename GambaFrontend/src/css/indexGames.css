@@ -1,0 +1,46 @@
+.indexGames{
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gameCard{
+    width: 80%;
+    height: 22.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    margin: auto;
+    background-color: var(--color-primary-darker);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.gameCardImage{
+    width: 100%;
+    height: 15rem;
+}
+
+.gameCardH1{
+    margin-top: 1rem;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.gameCardPlayerCount{
+    color: var(--color-secondary);
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.gameCardLink{
+    transition: transform 0.3s ease;
+}
+
+.gameCardLink:hover{
+    transform: translateY(-10px);
+}
