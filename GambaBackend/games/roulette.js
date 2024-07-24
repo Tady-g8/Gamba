@@ -3,6 +3,7 @@ function spinWheel() {
     const rouletteNumbers = Array.from({ length: ARR_SIZE }, (_, i) => i); // 0 to 13
     const multiplier = 3.9176470588235294;
 
+    // apply weights to all numbers, giving 7 a low weight because we want 7 = 1% -> green (13x multiplier)
     const weights = rouletteNumbers.map(num => (num === 7 ? 1 : 99 / (ARR_SIZE-1)));
     
     const sequence = [];
@@ -15,7 +16,6 @@ function spinWheel() {
     return { sequence, winningNumber };
 }
 
-// apply weights to all numbers, giving 7 a low weight because we want 7 = 1% -> green (13x multiplier)
 function getWeightedRandomIndex(weights) {
     const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
     const randomNum = Math.random() * totalWeight;
