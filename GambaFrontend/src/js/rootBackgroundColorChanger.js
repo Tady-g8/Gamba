@@ -1,14 +1,27 @@
-export default function rootBackgroundColorChanger() {
+export default function rootBackgroundColorChanger(money) {
+    console.log(money);
     var root = document.querySelector(':root');
-    var cs = getComputedStyle(root);
-    var rgba = cs.getPropertyValue('--color-secondary');
+    money = money.toString();
+    while (money.length < 9) {
+        money = '0' + money;
+    }
 
-    const rgbaValues = rgba.slice(5, -1).split(',').map(Number);
-    const [r, g, b] = rgbaValues;
+    console.log(money);
+    
+    var r = Math.floor(parseInt(money.slice(0, 3)) / 3.917);
+    var g = Math.floor(parseInt(money.slice(3, 6)) / 3.917);
+    var b = Math.floor(parseInt(money.slice(6, 9)) / 3.917);
+
+    console.log("Red: " + r + " Green: " + g + " Blue: " + b);
+
+    var compR = 255 - r;
+    var compG = 255 - g;
+    var compB = 255 - b;
 
     root.style.setProperty('--color-secondary-darker', RGBToHSL(r, g, b, 1, 8));
     root.style.setProperty('--color-secondary-main', RGBToHSL(r, g, b, 1, 2));
     root.style.setProperty('--color-primary-darker', RGBToHSL(r, g, b, 1, 25));
+    root.style.setProperty('--color-accent', RGBToHSL(compR, compG, compB, 0, 0));
 }
 
 function RGBToHSL(r,g,b, sat, light) {

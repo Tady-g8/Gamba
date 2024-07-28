@@ -72,4 +72,20 @@ router.post('/signin', async (req, res) => {
     }
 });
 
+router.get('/user', async (req, res) => {
+    console.log('Received request body:', req.query.id);
+    try {
+        const user = await User.findById(req.query.id);
+        res.json({
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            money: user.money,
+        });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
 module.exports = router;

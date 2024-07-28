@@ -1,9 +1,10 @@
 import './css/login.css'
 import React, { useState } from 'react';
 
-export default function Login() {
+export default function Register() {
     const [formData, setFormData] = useState({
         username: '',
+        email: '',
         password: ''
       });
     
@@ -19,13 +20,14 @@ export default function Login() {
         e.preventDefault();
         const username = formData.username;
         const password = formData.password;
+        const email = formData.email;
 
-        fetch('http://localhost:3000/api/auth/signin', {
+        fetch('http://localhost:3000/api/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password, email })
         }).then(res => {
             return res.json();
         }).then(data => {
@@ -33,10 +35,10 @@ export default function Login() {
             // Handle success response
             if (data.token) {
                 let msg = 'Welcome ' + formData.username;
-                sessionStorage.setItem('user', JSON.stringify(data.user));
+                //sessionStorage.setItem('user', JSON.stringify(data));
                 cardMover(msg);
                 setTimeout(() => {
-                    window.location.href = '/';
+                    window.location.href = '/login';
                 }, 2000);
             } else {
                 cardMover('Invalid credentials');
@@ -47,22 +49,27 @@ export default function Login() {
         });
     }
     return (
-        <div className="loginWrap">
+        <div className="signupWrap">
             <div className="loginLeft">
-            <h1>Welcome back!</h1>
+            <h1>Create a new account</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
                 <label htmlFor="username">Username</label>
                 <br />
                 <input className='loginInput' placeholder='John Doe' type="text" id="username" name="username" value={formData.username} onChange={handleChange} />
                 <br />
                 <br />
+                <label htmlFor="username">Email</label>
+                <br />
+                <input className='loginInput' placeholder='johndoe@example.com' type="text" id="email" name="email" value={formData.email} onChange={handleChange} />
+                <br />
+                <br />
                 <label htmlFor="password">Password</label>
                 <input className='loginInput' placeholder='********' type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
                 <br />
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
-            <p className='dontHaveAccount'>Don't have an account yet? <a href="/register">Register</a> <br /> <br />
+            <p className='dontHaveAccount' style={{ marginTop: '20px' }}>Already have an account? <a href="/login">Log in</a> <br /> <br />
             Forgot password? <a href="/forgot">Password Reset</a></p>
             </div>
 

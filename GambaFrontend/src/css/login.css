@@ -16,6 +16,24 @@
     color: white;
 }
 
+.signupWrap{
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    width: 55%;
+    height: auto;
+    margin: auto;
+    margin-top: 5rem;
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.3), 
+          rgba(0, 0, 0, 0.3)
+        );
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    color: white;
+}
+
 .loginLeft{
     padding: 2rem;
 }

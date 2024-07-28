@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './header.jsx'
 import Login from './login.jsx'
+import Register from './register.jsx'
 import IndexBody from './indexBody.jsx'
 import Footer from './footer.jsx';
 
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<IndexBody />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
         </Routes>
       </Router>
       <Footer />
